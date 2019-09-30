@@ -21,7 +21,9 @@ You can get the lastest data from [bitinfocharts.com][2]
 
 Open `index.html` in your browser directly and you will see the following page:
 
-In `original_data`, you can run:
+<img src="https://github.com/aksnzhy/xLearn/raw/master/img/speed.png" width = "800"/>
+
+In `original_data` folder, you can run the command:
 
 ```
 python process_data.py
