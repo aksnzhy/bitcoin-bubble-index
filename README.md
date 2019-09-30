@@ -1,6 +1,5 @@
 # Bitcoin Bubble Index
 
----
 ### What's this?
 
 This project provides a visualization analysis tool for price bubble of Bitcoin, including basic price information, 60-days accumulative increase, hot keywords index, and bubble index. We accumulated the original data (`2010/07/17` - `2019/09/28`) and put them into `/original_data` folder, and we visualize our analysis result using [echarts][1].
@@ -18,17 +17,17 @@ We provide the following dataset:
 
 You can get the lastest data from [bitinfocharts.com][2]
 
-#### Basic Price
-
-#### 60 Accumulative Increase
-
-#### Hot keywords
-
-#### Bubble Index
-
 ### How to use
 
-### How to contribute
+Open `index.html` in your browser directly and you will see the following page:
+
+In `original_data`, you can run:
+
+```
+python process_data.py
+```
+
+to get the analysis result, which will be stored in `data.json`.
 
 
   [1]: https://github.com/apache/incubator-echarts
