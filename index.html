@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <div id="main" style="width:1000px; height:1800px"></div>
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript">
+        // Get data from json file
+    	var mydata = JSON.parse(data);
+        var timeData = mydata.date;
+        var priceData = mydata.price;
+        var growData = mydata.growth_60_day;
+        var hotData = mydata.hot;
+        var bubbleData = mydata.bubble
+        // Init echarts
+        var myChart = echarts.init(document.getElementById('main'));
+        // set option
+        var option = {
+            title: {
+                text: 'Bitcoin Bubble Index',
+                x: 'center'
+            },    
+            axisPointer: {
+                link: {xAxisIndex: 'all'}
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    animation: false
+                }
+            },
+            legend: {
+                right: 100,
+                top: 30,
+                data:['linear scale','log scale'],
+            },
+            dataZoom: [{
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100,
+                xAxisIndex: [0,1,2]
+            }],
+            grid: [{
+                left: 100,
+                top: '6%',
+                height: '18%'
+            },{
+                left: 100,
+                top: '30%',
+                height: '18%'
+            },{
+                left: 100,
+                top: '54%',
+                height: '18%'
+            },{
+                left: 100,
+                top: '78%',
+                height: '18%'
+            }],
+            xAxis: [{
+                type : 'category',
+                boundaryGap : false,
+                axisLine: {onZero: true},
+                data: timeData
+            }, {
+                gridIndex: 1,
+                type : 'category',
+                boundaryGap : false,
+                axisLine: {onZero: true},
+                data: timeData
+            }, {
+                gridIndex: 2,
+                type : 'category',
+                boundaryGap : false,
+                axisLine: {onZero: true},
+                data: timeData
+            }, {
+                gridIndex: 3,
+                type : 'category',
+                boundaryGap : false,
+                axisLine: {onZero: true},
+                data: timeData
+            }],
+            yAxis: [
+                {
+                    name : 'BTC Price (USD)',
+                    type : 'value'
+                },
+                {
+                    type : 'log'
+                },                
+                {
+                    gridIndex: 1,
+                    name : '60 days Cumulative Increase (%)',
+                    type : 'value'
+                },
+                {
+                    gridIndex: 2,
+                    name : 'Hot Keywords (google + twitter)',
+                    type : 'value'
+                },
+                {
+                    gridIndex: 3,
+                    name : 'Bubble Index',
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    yAxisIndex : 1,
+                    name : 'log scale',
+                    type : 'line',
+                    hoverAnimation : false,
+                    data : priceData,
+                    markLine: {
+                        data: [{
+                           name: 'first halfing',
+                           xAxis: '2012/11/28'
+                        }, {
+                           name: 'second halfing',
+                           xAxis: '2016/07/10'
+                        }]
+                    }
+                },
+                {
+                    name : 'linear scale',
+                    type : 'line',
+                    smooth : true,
+                    hoverAnimation : false,
+                    data : priceData
+                },
+                {
+                    xAxisIndex: 1,
+                    yAxisIndex: 2,
+                    name : '60 days CI (%)',
+                    type : 'line',
+                    smooth : true,
+                    hoverAnimation : false,
+                    data : growData
+                },
+                {
+                    xAxisIndex: 2,
+                    yAxisIndex: 3,
+                    name : 'Hot Keywords',
+                    type : 'line',
+                    smooth : true,
+                    hoverAnimation : false,
+                    data : hotData
+                },
+                {
+                    xAxisIndex: 3,
+                    yAxisIndex: 4,
+                    name : 'Bubble Index',
+                    type : 'line',
+                    smooth : true,
+                    hoverAnimation : false,
+                    data : bubbleData
+                }
+            ]
+        }
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
+
