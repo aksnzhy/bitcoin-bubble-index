@@ -21,7 +21,7 @@ You can get the lastest data from [bitinfocharts.com][2]
 
 Open `index.html` in your browser directly and you will see the following page:
 
-<img src="https://github.com/aksnzhy/xLearn/raw/master/img/speed.png" width = "800"/>
+<img src="https://github.com/aksnzhy/bitcoin-bubble-index/blob/master/index.png" width = "800"/>
 
 In `original_data` folder, you can run the command:
 
