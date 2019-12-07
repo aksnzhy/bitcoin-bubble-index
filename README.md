@@ -2,7 +2,7 @@
 
 ### What's this?
 
-This project provides a visualization analysis tool for price bubble of Bitcoin, including basic price information, 60-days accumulative increase, hot keywords index, and bubble index. We accumulated the original data (`2010/07/17` - `2019/10/17`) and put them into `/original_data` folder, and we visualize our analysis result using [echarts][1].
+This project provides a visualization analysis tool for price bubble of Bitcoin, including basic price information, 60-days accumulative increase, hot keywords index, and bubble index. We accumulated the original data (`2010/07/17` - `2019/12/06`) and put them into `/original_data` folder, and we visualize our analysis result using [echarts][1].
 
 ### Datasets
 
